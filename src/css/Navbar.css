@@ -1,0 +1,45 @@
+nav .nav-logo {
+  display: flex;
+  box-shadow: 0px 5px 15px -2px rgba(212, 212, 212, 0.75);
+}
+
+nav .nav-logo a {
+  padding: 20px;
+  width: 83px;
+  height: 26px;
+}
+
+nav .nav-images {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+  align-items: center;
+  padding: 30px;
+  height: 800px;
+
+}
+
+nav .nav-images .col-1 {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 20px;
+  height: 100%;
+}
+
+nav .nav-images .col-2 {
+  display: grid;
+  grid-template-rows: 2fr 3fr;
+  row-gap: 20px;
+  height: 100%;
+}
+
+nav .nav-images .col-3 {
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+  row-gap: 20px;
+  height: 100%;
+}
+
+nav .nav-images .item {
+  background-color: blueviolet;
+}
