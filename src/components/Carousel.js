@@ -14,7 +14,7 @@ function Carousel(props) {
   }, [children])
 
   const next = () => {
-    if (currentIndex < (length - 1)) {
+    if (currentIndex < (length - show)) {
       setCurrentIndex(prevState => prevState + 1)
     }
   }
@@ -34,13 +34,13 @@ function Carousel(props) {
             &lt;
           </button>
         }
-        <div className="carousel-content-wrapper overflow-hidden w-full h-full">
-          <div className={`carousel-content show-${show}`} style={{ transform: `translateX(-${currentIndex * (100 / show)}%)` }} >
+        <div className="carousel-content-wrapper px-20 overflow-hidden w-full h-full">
+          <div className={`carousel-content flex show-${show}`} style={{ transform: `translateX(-${currentIndex * (100 / show)}%)` }} >
             {children}
           </div>
         </div>
         {
-          currentIndex < (length - 1) &&
+          currentIndex < (length - show) &&
           <button onClick={next} className="right-arrow">
             &gt;
           </button>

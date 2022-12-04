@@ -1,4 +1,4 @@
-.carousel>.carousel-content {
+.carousel .carousel-content {
     transition: all 250ms linear;
 
     -ms-overflow-style: none;
@@ -11,12 +11,6 @@
 .carousel>.carousel-content::-webkit-scrollbar,
 .carousel-content::-webkit-scrollbar {
     display: none;
-}
-
-.carousel-content>* {
-    width: 100%;
-    flex-shrink: 0;
-    flex-grow: 1;
 }
 
 .carousel .left-arrow,

@@ -5,39 +5,36 @@ import Carousel from './Carousel';
 import '../css/App.css';
 
 function App() {
-  const [photosURL, setPhotosURL] = useState([])
+  const [carouselData, setCarouselData] = useState([])
 
   useEffect(() => {
-    async function getPhotos() {
-      const photosURLList = [];
+    async function getCarouselData() {
+      const carouselDataList = [];
 
       let url = 'https://jsonplaceholder.typicode.com/albums/1/photos';
       let res = await fetch(url);
-      let photosData = await res.json();
+      let carouselFetchData = await res.json();
 
       for (let i = 0; i < 5; i++) {
-        photosURLList.push(photosData[i].url)
+        carouselDataList.push(carouselFetchData[i])
       }
 
 
-      setPhotosURL(photosURLList);
+      setCarouselData(carouselDataList);
     }
 
-    getPhotos();
+    getCarouselData();
   }, [])
 
-  console.log(photosURL);
+  console.log(carouselData);
 
   return (
     <div className="container-fluid">
       <Navbar />
-      <Carousel show={3}>
-        <Card />
-        <Card />
-        <Card />
-        {/* {photosURL.map((el) => <img src={el} />)} */}
+      <Carousel show={4}>
+        {carouselData.map((el) => <Card imgURL={el.url} title={el.title} />)}
       </Carousel>
-    </div>
+    </div >
   );
 }
 

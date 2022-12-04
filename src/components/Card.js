@@ -3,14 +3,17 @@ import starIcon from '../resources/star.png'
 import '../css/Card.css';
 
 function Card(props) {
+
+  const { imgURL, title, paragraph } = props
+
   return (
-    <div class="flex justify-center">
-      <div class="rounded-lg shadow-lg bg-white max-w-sm">
+    <div class="flex justify-center px-3 w-full shrink-0 grow-1">
+      <div class="rounded-lg shadow-lg bg-white">
         <a href="#!">
-          <img class="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt="" />
+          <img class="rounded-t-lg" src={imgURL} alt="" />
         </a>
         <div class="p-6">
-          <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
+          <h5 class="text-gray-900 text-xl font-medium mb-2">{title}</h5>
           <p class="text-gray-700 text-base mb-4">
             Some quick example text to build on the card title and make up the bulk of the card's
             content.
