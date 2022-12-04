@@ -1,30 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-// import Card from '../components/Card';
+import Navbar from './Navbar';
+import Card from './Card';
+import Carousel from './Carousel';
 import '../css/App.css';
 
 function App() {
-  const [photos, setPhotos] = useState([])
+  const [photosURL, setPhotosURL] = useState([])
 
   useEffect(() => {
     async function getPhotos() {
+      const photosURLList = [];
+
       let url = 'https://jsonplaceholder.typicode.com/albums/1/photos';
       let res = await fetch(url);
-      let photos = await res.json();
-      setPhotos(photos);
+      let photosData = await res.json();
+
+      for (let i = 0; i < 5; i++) {
+        photosURLList.push(photosData[i].url)
+      }
+
+
+      setPhotosURL(photosURLList);
     }
 
     getPhotos();
   }, [])
 
-  console.log(photos)
+  console.log(photosURL);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Navbar />
-      <section className='card-container'>
-        {photos.map((p) => <img src={p.url} />)}
-      </section>
+      <Carousel show={3}>
+        <Card />
+        <Card />
+        <Card />
+        {/* {photosURL.map((el) => <img src={el} />)} */}
+      </Carousel>
     </div>
   );
 }
